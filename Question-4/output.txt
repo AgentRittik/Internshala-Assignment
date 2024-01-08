@@ -1,0 +1,5 @@
+This is a sample text file. It contains multiple sentences. Each sentence is separated by a period.
+
+The script should capitalize the first letter of each sentence. Also, it should remove any extra spaces.
+
+This is another sentence in the file. Testing the script with more content. The final sentence to complete the test.

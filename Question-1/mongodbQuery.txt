@@ -1,0 +1,39 @@
+Question :1 
+Write a MongoDB query to find all documents in a collection where a particular field has avalue greater than a certain value.
+Solution : 
+
+Scenario : 
+
+[
+  {
+    "_id": ObjectId("60a73c5a73999b15a80f8d0a"),
+    "title": "Laptop",
+    "price": 1200.00,
+    "image": "laptop_image.jpg"
+  },
+  {
+    "_id": ObjectId("60a73c5a73999b15a80f8d0b"),
+    "title": "Smartphone",
+    "price": 699.99,
+    "image": "smartphone_image.jpg"
+  },
+  {
+    "_id": ObjectId("60a73c5a73999b15a80f8d0c"),
+    "title": "Headphones",
+    "price": 89.50,
+    "image": "headphones_image.jpg"
+  },
+  {
+    "_id": ObjectId("60a73c5a73999b15a80f8d0d"),
+    "title": "Smart Watch",
+    "price": 199.00,
+    "image": "smart_watch_image.jpg"
+  }
+]
+
+ 
+
+Query:
+Now, if you want to find all products where the price is greater than $100, you can use the following MongoDB query:
+
+db.products.find({ "price": { $gt: 100 } })

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animated Glassmorphism Login Page</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section>
+      <div class="leaves">
+        <div class="set">
+          <div><img src="./images/leaf_01.png" alt=""></div>
+          <div><img src="./images/leaf_02.png" alt=""></div>
+          <div><img src="./images/leaf_03.png" alt=""></div>
+          <div><img src="./images/leaf_04.png" alt=""></div>
+          <div><img src="./images/leaf_01.png" alt=""></div>
+          <div><img src="./images/leaf_02.png" alt=""></div>
+          <div><img src="./images/leaf_03.png" alt=""></div>
+          <div><img src="./images/leaf_04.png" alt=""></div>
+        </div>
+      </div>
+      <img src="./images/bg.jpg" class= "bg">
+      <img src="./images/girl.png" class= "girl">
+      <img src="./images/trees.png" class= "trees">
+      <form name ="MyForm" onsubmit="submit()">
+        <div class="login">
+          <h2>Sign In</h2>
+          <div class="inputBox">
+            <input type="text" placeholder="Username" name ="Username">
+          </div>
+          <div class="inputBox">
+            <input type="password" placeholder="Password" name = "Password">
+          </div>
+          <div class="inputBox">
+            <input type="submit" value = "login" id = "btn" >
+          </div>
+          <div class="group">
+            <a href="#">Forget Password</a>
+            <a href="#">Signup</a>
+          </div>
+        </div>
+      </form>
+    </section>
+  </body>
+  <script>
+    function submit(){
+      var name  = document.MyForm.Username.value;
+      var password  = document.MyForm.password.value;
+      console.log(name);
+    //   var details = {
+    //     'name': name,
+    //     'password':password,
+    // };
+    //
+    // var formBody = [];
+    // for (var property in details) {
+    //   var encodedKey = encodeURIComponent(property);
+    //   var encodedValue = encodeURIComponent(details[property]);
+    //   formBody.push(encodedKey + "=" + encodedValue);
+    // }
+    // formBody = formBody.join("&");
+    // console.log(formBody);
+    const data = new URLSearchParams();
+    data.append('name', name);
+    data.append('password', password);
+      const response  = fetch('localhost:4500/api/v1/submit',{
+        method : 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body : data
+      })
+      .then(response => response.json())
+    	.then(data => console.log(data))
+    	.catch(error => console.error(error));
+    }
+  </script>
+</html>
